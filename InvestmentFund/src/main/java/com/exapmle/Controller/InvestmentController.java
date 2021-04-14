@@ -32,7 +32,7 @@ public class InvestmentController {
     @PutMapping("/update/{id}")
     public void editInvestment(@PathVariable long id, @RequestBody Investment investment) {
         Investment existingInvestment = investmentRepository.findById(id).get();
-        Assert.notNull(existingInvestment, "Project not found");
+        Assert.notNull(existingInvestment, "Investment not found");
         existingInvestment.setName(investment.getName());
         existingInvestment.setDescription(investment.getDescription());
         existingInvestment.setAmount(investment.getAmount());
